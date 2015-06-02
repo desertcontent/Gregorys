@@ -1,0 +1,165 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test Map</title>
+	<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="css/screen-view.css" />
+	<link rel="stylesheet" href="css/themes/brisco.css" />
+		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>	
+		<script src="js/jquery.ui.map.js" type="text/javascript"></script>
+		<script src="js/jquery.ui.map.full.min.js" type="text/javascript"></script>
+		<script src="js/jquery.ui.map.services.min.js" type="text/javascript"></script>
+
+		-->
+ 
+	  
+		 <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> -->
+	  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.css" />  
+	  
+	
+	 <link rel="stylesheet" href="css/swipe_style.css" />
+	  <link rel="stylesheet" href="css/themes/brisco.css" /> 
+	 <!--<link rel="stylesheet" href="css/screen-view.css" />--> 
+	  <link rel="stylesheet" href="css/custom.css" /> 
+
+	 
+	 <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	 	 <script src="js/modernizr-latest.js" type="text/javascript"></script>
+	   <script src="js/custom.js"></script>
+	   
+	 <!--<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>-->
+	 <script src="http://code.jquery.com/mobile/1.3.0-rc.1/jquery.mobile-1.3.0-rc.1.min.js"></script>
+	 <script type="text/javascript">
+		//$(document).ready(function() {
+		//$.mobile.ajaxLinksEnabled = false;	
+		//}); 
+	 </script>
+	 <script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script> 
+	 <script src="js/jquery.ui.map.js" type="text/javascript"></script>
+	 <script src="js/jquery.ui.map.full.min.js" type="text/javascript"></script>
+	 <script src="js/jquery.ui.map.services.min.js" type="text/javascript"></script>
+	 
+
+	
+
+				
+		 		 		</head>
+<body>
+	
+		
+		<div id="directions_map" data-role="page" data-theme="b" data-inset="false">
+			<div data-role="header" data-theme="b">
+				<h1>Map &amp Directions </h1>
+				<!--<a data-rel="back">Back</a>-->
+			</div>
+			<div data-role="content" data-theme="b" id='testmap' data-inset="false" >
+			<div id="content-wrapper"> 
+				
+				<div class="ui-bar-c ui-corner-all ui-shadow" data-inset="false" style="padding:0em;" >
+					<div id="map_canvas_1" style="height:250px; "></div>
+					<p>
+						<label for="from">From</label>
+						<input id="from" class="ui-bar-c" type="text"   data-inline="true"  style="background-color:#fff;" value="Green Bay, WI" />
+						 <a id="submit" href="#" data-role="button" data-icon="search"  data-inline="false" data-inset="false" data-theme="b" >Get Directions</a> 
+						<a id="gps" href="#" data-role="button" data-icon="gear"  data-inline="false" data-inset="false"  data-theme="b">Directions from  Location</a> 
+					</p>
+					 <p>
+						<!--<label for="to">To</label>-->
+						<input type="hidden" id="to" class="ui-bar-c" type="text" value=" Gretna, NE" /> 
+						<!--<input type="hidden" id="to" class="ui-bar-c" type="text" value="Chicago, IL" />-->
+					</p>  
+					 
+					
+					 
+				</div>
+			    <!--<div data-role="collapsible" data-inset="false" >-->
+					<!--<h3>Turn-by-Turn Directions</h3>-->	
+				    <div id="results" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" style="display:none;">
+					<div class="ui-li ui-li-divider ui-btn ui-bar-b ui-corner-top ui-btn-up-undefined">Directions to: <span id="destination_address_display"></span></div>
+					<div id="directions"></div>
+					 
+				    <!--</div>-->
+			    </div>
+			
+		<div id="config" style="display:none;">
+		<h3>Device Locations: </h3>
+		<hr />
+		<div id="test" ></div> 
+		<p>
+		<span> Latitude : </span> <span id="xlat"></span> <br />
+		<span> Longitude : </span> <span id="xlng"></span> 
+		</p>  
+		<hr />
+		
+		<div id="biz" ></div>
+		<p>
+		<span> Latitude : </span> <span id="blat"></span> <br />
+		<span> Longitude : </span> <span id="blng"></span> 
+		</p> 
+		  
+		 <div id="map_canvas_x"  ></div> 
+		
+		<div id="latlng" value="43.7508284, -87.71453"></div>
+	</div>
+
+
+			
+			
+			<!-- START -->
+		<script src="js/map.js" type="text/javascript"></script>
+
+			
+			
+			
+					
+	<div id="content-wrapper"> 		
+			
+			</div> <!-- end content -->
+			
+	
+	
+	
+	  
+	
+
+                      <!--<div data-role="navbar"   data-inset="false" >
+					     <ul>
+						<a id="submit" href="#" data-role="button" data-icon="search"  data-inline="false" data-inset="false" data-theme="b" >Get Directions</a> 
+						<a id="gps" href="#" data-role="button" data-icon="gear"  data-inline="false" data-inset="false"  data-theme="b"> 
+							</ul> 
+							</div>-->
+
+		
+
+		<div data-role="footer"  data-position="fixed"  class="footer-docs"  data-theme="b" >     
+		<!--<a  data-role="url" href="http://datafog.com"    data-inline="true" data-theme="b" style="float:right;margin-right:5px;valign:center;">&copy; Datafog Applications</a>-->
+						
+						
+
+
+
+		 <div data-role="navbar"   data-inset="false" >
+				<ul>
+				<li><a data-iconpos="left" data-icon="bars" data-ajax="true" data-rel="back">Back</a></li>
+								<!--<li><a data-iconpos="left" data-icon="bars" data-ajax="true"  href="#menu-page"  id="mobile-menu"  >Menu</a></li>
+				<li><a data-iconpos="left" data-icon="bars" data-ajax="false"  href="gallery.html"  id="mobile-photos">Photos</a></li>
+				<li><a data-iconpos="left" data-icon="bars" data-ajax="false"  href="googlemap.html"  id="mobile-map">Map</a></li> -->
+				<li><a data-iconpos="left"  data-ajax="false" data-transition="slidedown" data-role="button" href="index.html#main-mobile" data-icon="bars" data-inline="true" data-theme="b" id="fullsite">Home</a></li>
+				</ul> 
+		 </div>
+		</div>
+		
+		
+ 
+		
+		
+		</div> <!-- end page -->
+		
+		 		
+		 
+	</body>
+</html>
